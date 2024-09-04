@@ -1,0 +1,79 @@
+<%- include('partials/header'); -%>
+<div class="container">
+<main>
+    <form id="reservationForm">
+        <h2>Table Reservation</h2>
+    
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+    
+        <div class="row">
+            <div>
+                <label for="reservationDate">Date:</label>
+                <input type="date" id="reservationDate" name="reservationDate" required>
+            </div>
+    
+            <div>
+                <label for="reservationTime">Time:</label>
+                <input type="time" id="reservationTime" name="reservationTime" required>
+            </div>
+    
+            <div>
+                <label for="partySize">Party Size:</label>
+                <select id="partySize" name="partySize" required>
+                    <option value="1">1 person</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                    <option value="5">5 people</option>
+                </select>
+            </div>
+        </div>
+    
+        <button id="mybutton1" type="submit">Reserve</button>
+    </form>
+    
+</main>
+
+
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+'use strict';
+// navbar variables
+const nav = document.querySelector('.navbar-nav');
+const navLinks = document.querySelectorAll('.nav-link');
+const navToggleBtn = document.querySelector('.menu-toggle-btn');
+const shoppingCart = document.querySelector('.cart-box');
+// nav toggle function
+const navToggleFunc = function () {
+  nav.classList.toggle('active');
+  navToggleBtn.classList.toggle('active');
+}
+// add event on nav-toggle-btn
+navToggleBtn.addEventListener('click', function () {
+  if (shoppingCart.classList.contains('active')) cartToggleFunc();
+  navToggleFunc();
+});
+// add event on all nav-link
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', navToggleFunc);
+}
+
+const reservationForm = document.getElementById('reservationForm');
+
+    reservationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert("Your reservation will be confirmed through call or message. Thank you!");
+        window.location.href = '/'; // Replace '/' with the actual URL of your home page
+    });
+</script>
+

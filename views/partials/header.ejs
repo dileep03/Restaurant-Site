@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodhub</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" href="assets/pizza.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-wrapper">
+        <a href="#home">
+          <img src="assets/logo.svg" alt="logo" width="130">
+        </a>
+        <ul class="navbar-nav">
+          <li>
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li>
+            <a href="#services" class="nav-link">Services</a>
+          </li>
+          <li>
+            <a href="#menu" class="nav-link">Menu</a>
+          </li>
+          <li>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+          </li>
+          <% if (user) { %>
+            <li>Welcome, <%= user.email %></li>
+            <li><a href="/logout">Log out</a></li>
+          <% } else { %>
+            <li style="font-family: 'Rubik',sans-serif;font-size: small;color: #77778D;"><a  href="/login">Log in</a></li>
+            <li style="font-family: 'Rubik',sans-serif; font-size: small;color: #77778D;"><a href="/signup" class="btn">Sign up</a></li>
+          <% } %>    
+        </ul>
+
+        <div class="navbar-btn-group">
+          <!-- login and signup -->
+          <button class="menu-toggle-btn">
+            <span class="line one"></span>
+            <span class="line two"></span>
+            <span class="line three"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="cart-box">
+      <div class="cart-btn-group">
+        <button id="newbutton" class="btn btn-secondary">View order</button>
+      </div>
+    </div>
+  </div>
+  </nav>
+</body>
+  
